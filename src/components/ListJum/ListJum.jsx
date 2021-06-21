@@ -7,7 +7,7 @@ export const ListJum = () => {
   const refInput = useRef(null);
 
   const searchJum = (text) => {
-    const data = db.filter((_) => _.title.indexOf(text) >= 0);
+    const data = db.filter((_) => _.title.toLowerCase().indexOf(text.toLowerCase()) >= 0);
     return data;
   };
 
