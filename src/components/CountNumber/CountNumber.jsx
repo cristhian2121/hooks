@@ -2,16 +2,30 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 
 export const CountNumber = () => {
-  console.log("Init");
+  console.log("Init count");
   const [count, updateCount] = useState(0);
-  const [count2, updateCount2] = useState(0);
+  const [count2, updateCount2] = useState(1);
   const [tip, setTip] = useState("tip");
   let countAux = 0;
 
   function update() {
-    updateCount(count + 1);
-    updateCount2(count + 1);
-    countAux = countAux + 1;
+    console.log("* 1");
+    updateCount((prev) => prev + 1);
+    updateCount2((prev) => prev + 1);
+    // countAux = countAux + 1;
+    otherIcrement();
+  }
+
+  function otherIcrement() {
+    console.log("* 2");
+    updateCount((prev) => prev + 1);
+    updateCount2((prev) => prev + 1);
+    otherIcrement2();
+  }
+
+  function otherIcrement2() {
+    console.log("* 3");
+    updateCount((prev) => prev + 1);
   }
 
   const updateTip = () => {
@@ -20,14 +34,16 @@ export const CountNumber = () => {
   };
 
   useEffect(() => {
+    console.log('Use 2');
     setTip(tip === "tip" ? "boom" : "tip");
     setTimeout(() => {
-      updateCount(count + 1);
+      updateCount(prev => prev + 1);
       updateCount2(count + 1);
     }, 5000);
   }, []);
 
   useEffect(() => {
+    console.log('Use 1');
     updateCount(count + 1);
   }, []);
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import { Fibonacci } from "./components";
+import { CountNumber, ListPets } from "./components";
 
 function App() {
   const [toggle, setToggle] = useState();
@@ -9,10 +9,12 @@ function App() {
   return (
     <div>
       <button onClick={() => setToggle(!toggle)}>Click</button>
-      {/* <Cronometer /> */}
+      {/* State */}
+      {/* <Cronometer />  */}
       {/* <ListJum /> */}
-      <Fibonacci />
-      {/* {toggle ? <CountNumber></CountNumber> : <ListPets></ListPets>} */}
+      {/* <Fibonacci /> */}
+      {/* Effect */}
+      {toggle ? <CountNumber></CountNumber> : <ListPets></ListPets>}
     </div>
   );
 }
